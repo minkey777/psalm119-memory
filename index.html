@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#102a56">
+<title>시편 119편 81~104절 단계별 암송 연습</title>
+<style>
+:root {
+  --navy:#102a56; --blue:#1d4f91; --gold:#b88738; --cream:#fbf7ee;
+  --ink:#172033; --muted:#6b7280; --line:#d9dfeb; --ok:#16794f; --bad:#b33a3a;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:linear-gradient(180deg,#eef4fb 0%,#fbf7ee 100%);color:var(--ink)}
+button,input,select{font:inherit}
+.app{max-width:760px;margin:0 auto;padding:14px 14px 90px}
+.hero{background:var(--navy);color:white;border-radius:24px;padding:22px 18px 20px;position:relative;overflow:hidden}
+.hero:after{content:"✦";position:absolute;right:18px;top:10px;font-size:52px;color:rgba(255,255,255,.12)}
+.hero h1{margin:0 0 8px;font-size:1.55rem;line-height:1.3}
+.hero p{margin:0;color:#dce8f8;line-height:1.55}
+.progress-wrap{margin-top:16px}
+.progress-track{height:10px;background:rgba(255,255,255,.2);border-radius:999px;overflow:hidden}
+.progress-bar{height:100%;width:0;background:#f2c267;transition:.25s}
+.progress-text{font-size:.9rem;margin-top:7px;color:#fff}
+.card{background:white;border:1px solid var(--line);border-radius:20px;padding:16px;margin-top:14px}
+.section-title{font-weight:800;color:var(--navy);margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.range-btn,.stage-btn,.small-btn,.primary,.ghost{border:0;border-radius:14px;padding:12px 10px;cursor:pointer}
+.range-btn{background:#edf3fb;color:var(--navy);font-weight:700}
+.range-btn.active{background:var(--navy);color:#fff}
+.stages{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stage-btn{text-align:left;background:#fff;border:1px solid var(--line);min-height:88px}
+.stage-btn b{display:block;color:var(--navy);margin-bottom:4px}
+.stage-btn span{font-size:.88rem;color:var(--muted);line-height:1.35}
+.stage-btn.active{border:2px solid var(--gold);background:#fffaf0}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.primary{background:var(--navy);color:#fff;font-weight:700}
+.ghost{background:#edf3fb;color:var(--navy);font-weight:700}
+.small-btn{background:#f6f7f9;color:var(--ink);padding:8px 10px}
+.verse-box{background:var(--cream);border:1px solid #eadfc9;border-radius:18px;padding:18px;margin-top:12px}
+.verse-no{font-weight:800;color:var(--gold);margin-bottom:8px}
+.verse-text{font-size:1.22rem;line-height:1.85;word-break:keep-all}
+.hint{font-size:1.12rem;line-height:1.9;color:var(--navy);font-weight:700;letter-spacing:.03em}
+.keyword-chip{display:inline-block;background:#eef3fb;color:var(--navy);padding:7px 10px;border-radius:999px;margin:4px;font-weight:700}
+.nav-row{display:flex;justify-content:space-between;gap:10px;margin-top:14px}
+.nav-row button{flex:1}
+.blank-wrap{line-height:2.1;font-size:1.05rem}
+.blank-input{width:92px;border:0;border-bottom:2px solid var(--gold);background:transparent;padding:3px 4px;margin:0 3px;text-align:center}
+.feedback{margin-top:10px;font-weight:700}
+.ok{color:var(--ok)} .bad{color:var(--bad)}
+.sort-list{display:grid;gap:8px}
+.sort-item{border:1px solid var(--line);background:white;border-radius:14px;padding:12px;text-align:left;cursor:pointer}
+.sort-item.selected{border-color:var(--gold);background:#fff8e8}
+.order-box{min-height:72px;border:2px dashed #cbd5e1;border-radius:14px;padding:10px;margin-top:10px}
+.mastery{display:flex;gap:8px;margin-top:14px}
+.mastery button{flex:1}
+.tip{font-size:.9rem;color:var(--muted);line-height:1.6}
+.footer-fixed{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);border-top:1px solid var(--line);padding:10px 14px env(safe-area-inset-bottom);backdrop-filter:blur(10px)}
+.footer-inner{max-width:760px;margin:0 auto;display:flex;gap:8px}
+.footer-inner button{flex:1}
+.hidden{display:none!important}
+.day-plan{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.day-plan button{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:10px;text-align:left}
+.day-plan b{color:var(--navy)}
+@media (max-width:520px){
+  .grid{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:1.35rem}
+  .verse-text{font-size:1.12rem}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <section class="hero">
+    <h1>2026 여름 성경암송대회</h1>
+    <p>시편 119편 81~104절 · 단계별 반복 암송</p>
+    <div class="progress-wrap">
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      <div id="progressText" class="progress-text">완료 0 / 24절</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title">오늘 연습할 범위</div>
+    <div class="grid">
+      <button class="range-btn active" data-start="81" data-end="88">81~88절<br><small>구원을 약속하시는 말씀</small></button>
+      <button class="range-btn" data-start="89" data-end="96">89~96절<br><small>영원히 변치 않는 말씀</small></button>
+      <button class="range-btn" data-start="97" data-end="104">97~104절<br><small>지혜와 명철을 주는 말씀</small></button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title">단계별 연습</div>
+    <div class="stages">
+      <button class="stage-btn active" data-stage="read"><b>1단계 · 읽고 듣기</b><span>말씀을 보고 큰 소리로 3번 읽어요.</span></button>
+      <button class="stage-btn" data-stage="keywords"><b>2단계 · 핵심어 기억</b><span>핵심 단어를 연결해 내용을 떠올려요.</span></button>
+      <button class="stage-btn" data-stage="initial"><b>3단계 · 첫 글자 힌트</b><span>각 단어의 첫 글자만 보고 말해요.</span></button>
+      <button class="stage-btn" data-stage="blank"><b>4단계 · 빈칸 채우기</b><span>숨은 단어를 입력하고 바로 채점해요.</span></button>
+      <button class="stage-btn" data-stage="order"><b>5단계 · 순서 맞추기</b><span>구절의 순서를 기억해 배열해요.</span></button>
+      <button class="stage-btn" data-stage="test"><b>6단계 · 실전 암송</b><span>구절 번호만 보고 외운 뒤 스스로 확인해요.</span></button>
+    </div>
+  </section>
+
+  <section id="practiceCard" class="card">
+    <div id="modeTitle" class="section-title">1단계 · 읽고 듣기</div>
+    <div id="practiceArea"></div>
+  </section>
+
+  <section class="card">
+    <div class="section-title">7일 반복 계획</div>
+    <div class="day-plan">
+      <button data-day="1"><b>1일차</b><br>81~84절</button>
+      <button data-day="2"><b>2일차</b><br>85~88절</button>
+      <button data-day="3"><b>3일차</b><br>89~92절</button>
+      <button data-day="4"><b>4일차</b><br>93~96절</button>
+      <button data-day="5"><b>5일차</b><br>97~100절</button>
+      <button data-day="6"><b>6일차</b><br>101~104절</button>
+      <button data-day="7" style="grid-column:1/-1"><b>7일차</b><br>81~104절 전체 실전 점검</button>
+    </div>
+    <p class="tip">연습 기록은 현재 기기의 브라우저에 저장됩니다. 같은 기기에서 다시 열면 이어서 연습할 수 있습니다.</p>
+  </section>
+</div>
+
+<div class="footer-fixed">
+  <div class="footer-inner">
+    <button id="resetBtn" class="ghost">기록 초기화</button>
+    <button id="shareBtn" class="primary">카톡으로 공유</button>
+  </div>
+</div>
+
+<script>
+const verses = {"81": "나의 영혼이 주의 구원을 사모하기에 피곤하오나 나는 주의 말씀을 바라나이다", "82": "나의 말이 주께서 언제나 나를 안위하실까 하면서 내 눈이 주의 말씀을 바라기에 피곤하니이다", "83": "내가 연기 속의 가죽 부대 같이 되었으나 주의 율례들을 잊지 아니하나이다", "84": "주의 종의 날이 얼마나 되나이까 나를 핍박하는 자들을 주께서 언제나 심판하시리이까", "85": "주의 법을 따르지 아니하는 교만한 자들이 나를 해하려고 웅덩이를 팠나이다", "86": "주의 모든 계명들은 신실하니이다 그들이 이유 없이 나를 핍박하오니 나를 도우소서", "87": "그들이 나를 세상에서 거의 멸하였으나 나는 주의 법도들을 버리지 아니하였사오니", "88": "주의 인자하심을 따라 나를 살아나게 하소서 그리하시면 주의 입의 교훈들을 내가 지키리이다", "89": "여호와여 주의 말씀은 영원히 하늘에 굳게 섰사오며", "90": "주의 성실하심은 대대에 이르나이다 주께서 땅을 세우셨으므로 땅이 항상 있사오니", "91": "천지가 주의 규례들대로 오늘까지 있음은 만물이 주의 종이 된 까닭이니이다", "92": "주의 법이 나의 즐거움이 되지 아니하였더면 내가 내 고난 중에 멸망하였으리이다", "93": "내가 주의 법도들을 영원히 잊지 아니하오니 주께서 이것들 때문에 나를 살게 하심이니이다", "94": "나는 주의 것이오니 나를 구원하소서 내가 주의 법도들만을 찾았나이다", "95": "악인들이 나를 멸하려고 엿보오나 나는 주의 증거들만을 생각하겠나이다", "96": "내가 보니 모든 완전한 것이 다 끝이 있어도 주의 계명들은 심히 넓으니이다", "97": "내가 주의 법을 어찌 그리 사랑하는지요 내가 그것을 종일 작은 소리로 읊조리나이다", "98": "주의 계명들이 항상 나와 함께 하므로 그것들이 나를 원수보다 지혜롭게 하나이다", "99": "내가 주의 증거들을 늘 읊조리므로 나의 명철함이 나의 모든 스승보다 나으며", "100": "주의 법도들을 지키므로 나의 명철함이 노인보다 나으니이다", "101": "내가 주의 말씀을 지키려고 발을 금하여 모든 악한 길로 가지 아니하였사오며", "102": "주께서 나를 가르치셨으므로 내가 주의 규례들에서 떠나지 아니하였나이다", "103": "주의 말씀의 맛이 내게 어찌 그리 단지요 내 입에 꿀보다 더 다니이다", "104": "주의 법도들로 말미암아 내가 명철하게 되었으므로 모든 거짓 행위를 미워하나이다"};
+let currentStart=81, currentEnd=88, currentVerse=81, stage='read';
+let orderSelection=[];
+const state = JSON.parse(localStorage.getItem('ps119-mastery') || '{}');
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+function saveState() {
+  localStorage.setItem('ps119-mastery', JSON.stringify(state));
+  updateProgress();
+}
+function updateProgress() {
+  const done = Object.values(state).filter(v=>v===true).length;
+  $('#progressBar').style.width = `${done/24*100}%`;
+  $('#progressText').textContent = `완료 ${done} / 24절`;
+}
+function wordsOf(text) { return text.split(/\s+/); }
+function firstHint(text) {
+  return wordsOf(text).map(w => w[0] + '＿'.repeat(Math.max(1, w.length-1))).join(' ');
+}
+function keywords(text) {
+  const particles = new Set(['나의','내가','나는','주의','주께서','그들이','그것들이','모든','영원히','항상','어찌','그리','때문에','말미암아','그러므로','하므로','하오니','되었으므로']);
+  return wordsOf(text)
+    .map(w=>w.replace(/[.,!?]/g,''))
+    .filter(w=>w.length>=3 && !particles.has(w))
+    .slice(0,6);
+}
+function speak(text) {
+  if(!('speechSynthesis' in window)) return alert('이 기기에서는 음성 읽기를 지원하지 않습니다.');
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang='ko-KR'; u.rate=.82; u.pitch=1;
+  speechSynthesis.speak(u);
+}
+function verseNav() {
+  return `<div class="nav-row">
+    <button id="prevVerse" class="ghost">이전</button>
+    <button id="nextVerse" class="primary">다음</button>
+  </div>`;
+}
+function masteryButtons() {
+  const mastered = !!state[currentVerse];
+  return `<div class="mastery">
+    <button id="needBtn" class="${mastered?'ghost':'primary'}">복습 필요</button>
+    <button id="masterBtn" class="${mastered?'primary':'ghost'}">외웠어요 ✓</button>
+  </div>`;
+}
+function bindCommon() {
+  $('#prevVerse')?.addEventListener('click',()=>{currentVerse=currentVerse<=currentStart?currentEnd:currentVerse-1;render();});
+  $('#nextVerse')?.addEventListener('click',()=>{currentVerse=currentVerse>=currentEnd?currentStart:currentVerse+1;render();});
+  $('#masterBtn')?.addEventListener('click',()=>{state[currentVerse]=true;saveState();render();});
+  $('#needBtn')?.addEventListener('click',()=>{state[currentVerse]=false;saveState();render();});
+}
+
+function renderRead() {
+  const t=verses[currentVerse];
+  return `<div class="verse-box">
+    <div class="verse-no">시편 119편 ${currentVerse}절</div>
+    <div class="verse-text">${t}</div>
+    <div class="toolbar">
+      <button id="speakBtn" class="primary">▶ 천천히 듣기</button>
+      <button id="countBtn" class="ghost">읽기 횟수 0 / 3</button>
+    </div>
+  </div>${verseNav()}${masteryButtons()}`;
+}
+function renderKeywords() {
+  const ks=keywords(verses[currentVerse]);
+  return `<div class="verse-box">
+    <div class="verse-no">시편 119편 ${currentVerse}절</div>
+    <div>${ks.map(k=>`<span class="keyword-chip">${k}</span>`).join('')}</div>
+    <div class="toolbar"><button id="revealBtn" class="primary">전체 말씀 보기</button></div>
+    <div id="revealText" class="verse-text hidden" style="margin-top:12px">${verses[currentVerse]}</div>
+  </div>${verseNav()}${masteryButtons()}`;
+}
+function renderInitial() {
+  return `<div class="verse-box">
+    <div class="verse-no">시편 119편 ${currentVerse}절</div>
+    <div class="hint">${firstHint(verses[currentVerse])}</div>
+    <div class="toolbar"><button id="revealBtn" class="primary">정답 확인</button></div>
+    <div id="revealText" class="verse-text hidden" style="margin-top:12px">${verses[currentVerse]}</div>
+  </div>${verseNav()}${masteryButtons()}`;
+}
+function renderBlank() {
+  const words=wordsOf(verses[currentVerse]);
+  const hideIdx = words.map((_,i)=>i).filter(i=>i%3===1 || i%5===0).slice(0,Math.max(3,Math.floor(words.length*.35)));
+  const html=words.map((w,i)=>hideIdx.includes(i)?`<input class="blank-input" data-answer="${w}" aria-label="빈칸">`:w).join(' ');
+  return `<div class="verse-box">
+    <div class="verse-no">시편 119편 ${currentVerse}절</div>
+    <div class="blank-wrap">${html}</div>
+    <div class="toolbar">
+      <button id="checkBlank" class="primary">채점하기</button>
+      <button id="showBlank" class="ghost">정답 보기</button>
+    </div>
+    <div id="blankFeedback" class="feedback" aria-live="polite"></div>
+  </div>${verseNav()}${masteryButtons()}`;
+}
+function renderOrder() {
+  const nums=[]; for(let i=currentStart;i<=currentEnd;i++) nums.push(i);
+  const shuffled=[...nums].sort(()=>Math.random()-.5);
+  orderSelection=[];
+  return `<div class="tip">구절을 1절부터 차례대로 눌러 순서를 완성하세요.</div>
+  <div id="orderList" class="sort-list" style="margin-top:10px">
+    ${shuffled.map(n=>`<button class="sort-item" data-n="${n}"><b>${n}절</b> · ${verses[n].slice(0,24)}…</button>`).join('')}
+  </div>
+  <div class="order-box"><b>선택한 순서:</b> <span id="orderText">아직 선택하지 않았어요.</span></div>
+  <div class="toolbar"><button id="checkOrder" class="primary">순서 확인</button><button id="resetOrder" class="ghost">다시</button></div>
+  <div id="orderFeedback" class="feedback" aria-live="polite"></div>`;
+}
+function renderTest() {
+  return `<div class="verse-box">
+    <div class="verse-no">시편 119편 ${currentVerse}절</div>
+    <div class="verse-text">구절 번호만 보고 말씀 전체를 암송해 보세요.</div>
+    <div class="toolbar"><button id="revealBtn" class="primary">암송 후 정답 확인</button></div>
+    <div id="revealText" class="verse-text hidden" style="margin-top:12px">${verses[currentVerse]}</div>
+  </div>${verseNav()}${masteryButtons()}`;
+}
+function render() {
+  $('#modeTitle').textContent = {
+    read:'1단계 · 읽고 듣기',keywords:'2단계 · 핵심어 기억',initial:'3단계 · 첫 글자 힌트',
+    blank:'4단계 · 빈칸 채우기',order:'5단계 · 순서 맞추기',test:'6단계 · 실전 암송'
+  }[stage];
+  $('#practiceArea').innerHTML = {
+    read:renderRead,keywords:renderKeywords,initial:renderInitial,blank:renderBlank,order:renderOrder,test:renderTest
+  }[stage]();
+
+  if(stage==='read') {
+    let count=0;
+    $('#speakBtn').addEventListener('click',()=>speak(verses[currentVerse]));
+    $('#countBtn').addEventListener('click',e=>{count=Math.min(3,count+1);e.target.textContent=`읽기 횟수 ${count} / 3`;if(count===3)e.target.className='primary';});
+  }
+  if(['keywords','initial','test'].includes(stage)) {
+    $('#revealBtn').addEventListener('click',()=>$('#revealText').classList.toggle('hidden'));
+  }
+  if(stage==='blank') {
+    $('#checkBlank').addEventListener('click',()=>{
+      const ins=$$('.blank-input'); let correct=0;
+      ins.forEach(i=>{ const ok=i.value.trim()===i.dataset.answer; i.style.borderBottomColor=ok?'#16794f':'#b33a3a'; if(ok)correct++; });
+      const pct=Math.round(correct/ins.length*100);
+      const f=$('#blankFeedback'); f.textContent=`정답 ${correct} / ${ins.length} · ${pct}점`; f.className='feedback '+(pct===100?'ok':'bad');
+    });
+    $('#showBlank').addEventListener('click',()=>$$('.blank-input').forEach(i=>i.value=i.dataset.answer));
+  }
+  if(stage==='order') {
+    $$('.sort-item').forEach(b=>b.addEventListener('click',()=>{
+      const n=Number(b.dataset.n);
+      if(b.classList.contains('selected')) {
+        b.classList.remove('selected'); orderSelection=orderSelection.filter(x=>x!==n);
+      } else {
+        b.classList.add('selected'); orderSelection.push(n);
+      }
+      $('#orderText').textContent=orderSelection.length?orderSelection.join(' → '):'아직 선택하지 않았어요.';
+    }));
+    $('#checkOrder').addEventListener('click',()=>{
+      const answer=[];for(let i=currentStart;i<=currentEnd;i++)answer.push(i);
+      const ok=JSON.stringify(answer)===JSON.stringify(orderSelection);
+      const f=$('#orderFeedback'); f.textContent=ok?'정확합니다! 순서를 잘 기억했어요.':'순서를 다시 확인해 보세요.'; f.className='feedback '+(ok?'ok':'bad');
+    });
+    $('#resetOrder').addEventListener('click',render);
+  }
+  bindCommon();
+}
+
+$$('.range-btn').forEach(b=>b.addEventListener('click',()=>{
+  $$('.range-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  currentStart=Number(b.dataset.start); currentEnd=Number(b.dataset.end); currentVerse=currentStart; render();
+}));
+$$('.stage-btn').forEach(b=>b.addEventListener('click',()=>{
+  $$('.stage-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  stage=b.dataset.stage; render();
+}));
+$$('[data-day]').forEach(b=>b.addEventListener('click',()=>{
+  const d=Number(b.dataset.day);
+  const ranges={1:[81,84],2:[85,88],3:[89,92],4:[93,96],5:[97,100],6:[101,104],7:[81,104]};
+  [currentStart,currentEnd]=ranges[d]; currentVerse=currentStart; stage='read';
+  $$('.stage-btn').forEach(x=>x.classList.toggle('active',x.dataset.stage==='read'));
+  $$('.range-btn').forEach(x=>x.classList.remove('active'));
+  window.scrollTo({top:$('#practiceCard').offsetTop-10,behavior:'smooth'});
+  render();
+}));
+$('#resetBtn').addEventListener('click',()=>{
+  if(confirm('모든 암송 기록을 초기화할까요?')){localStorage.removeItem('ps119-mastery');Object.keys(state).forEach(k=>delete state[k]);updateProgress();render();}
+});
+$('#shareBtn').addEventListener('click',async()=>{
+  const data={title:'시편 119편 암송 연습',text:'시편 119편 81~104절 단계별 암송 연습 도구입니다.',url:location.href};
+  if(navigator.share){try{await navigator.share(data)}catch(e){}}
+  else alert('공유 기능을 지원하지 않는 브라우저입니다. 주소를 복사해 카카오톡에 보내주세요.');
+});
+updateProgress(); render();
+</script>
+</body>
+</html>
